@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index]
 
+  resources :friendships, only: [:create, :destroy, :accept] do
+    member do
+      put :accept
+    end
+  end
+
   #get 'users/:id' => "users#show", as: :profile
 
   # The priority is based upon order of creation: first created -> highest priority.
